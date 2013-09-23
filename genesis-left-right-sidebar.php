@@ -25,7 +25,7 @@ Author URI: http://www.billerickson.net
 */
 
 class BE_GLRS {
-  var $instance;
+	var $instance;
 	
 	function __construct() {
 		$this->instance =& $this;
@@ -96,4 +96,4 @@ class BE_GLRS {
 	}
 }
 
-new BE_GLRS;
+$BE_GLRS = new BE_GLRS;
