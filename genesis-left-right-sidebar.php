@@ -32,7 +32,6 @@ class BE_GLRS {
 		register_activation_hook( __FILE__, array( $this, 'activation_hook' ) );
 		add_action( 'plugins_loaded', array( $this, 'translations' ) );
 		add_action( 'genesis_setup', array( $this, 'init' ), 11 );	
-		add_filter( 'gettext', array( $this, 'gss_translations' ), 10, 3 );
 		add_action( 'genesis_sidebar', array( $this, 'sidebar_content' ), 5 );
 	}
 	
@@ -71,19 +70,6 @@ class BE_GLRS {
 		genesis_unregister_layout( 'content-sidebar-sidebar' );
 		genesis_unregister_layout( 'sidebar-sidebar-content' );
 			
-	}
-
-	/**
-	 * Genesis Simple Sidebar Translations
-	 * Since they hardcode labels
-	 *
-	 */
-	function gss_translations( $translation, $text, $domain ) {
-		if( $text == 'Primary Sidebar' && $domain == 'ss' )
-			$translation = __( 'Right Sidebar', 'glrs' );
-		if( $text == 'Secondary Sidebar' && $domain == 'ss' )
-			$translation = __( 'Left Sidebar', 'glrs' );
-		return $translation;
 	}
 
 	/**
