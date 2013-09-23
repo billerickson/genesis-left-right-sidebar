@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Genesis Left Right Sidebar
-Plugin URI: http://www.billerickson.net
+Plugin URI: https://github.com/billerickson/genesis-left-right-sidebar
 Description: Regardless of layout, the left sidebar is always used on left, and right on right
 Author: Bill Erickson
 Version: 1.0
