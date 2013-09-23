@@ -42,7 +42,7 @@ class BE_GLRS {
 	function activation_hook() {
 		if ( 'genesis' != basename( TEMPLATEPATH ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) );
-			wp_die( sprintf( __( 'Sorry, you can&rsquo;t activate unless you have installed <a href="%s">Genesis</a>', 'genesis-title-toggle'), 'http://www.billerickson.net/get-genesis' ) );
+			wp_die( sprintf( __( 'Sorry, you can&rsquo;t activate unless you have installed <a href="%s">Genesis</a>', 'genesis-title-toggle'), 'http://www.billerickson.net/go/genesis' ) );
 		}
 	}
 
