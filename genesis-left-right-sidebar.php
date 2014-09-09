@@ -4,7 +4,7 @@ Plugin Name: Genesis Left Right Sidebar
 Plugin URI: https://github.com/billerickson/genesis-left-right-sidebar
 Description: Regardless of layout, the left sidebar is always used on left, and right on right
 Author: Bill Erickson
-Version: 1.0
+Version: 1.1
 Requires at least: 3.0
 Author URI: http://www.billerickson.net
 */
@@ -69,6 +69,10 @@ class BE_GLRS {
 		// Remove Unused Layouts
 		genesis_unregister_layout( 'content-sidebar-sidebar' );
 		genesis_unregister_layout( 'sidebar-sidebar-content' );
+		
+		// Classes on widget areas
+		add_filter( 'genesis_attr_sidebar-primary', array( $this, 'primary_sidebar_class' ), 20 );
+		add_filter( 'genesis_attr_sidebar-secondary', array( $this, 'secondary_sidebar_class' ), 20 );
 			
 	}
 
@@ -93,6 +97,26 @@ class BE_GLRS {
 			add_action( 'genesis_sidebar', 'genesis_do_sidebar_alt' );	
 			
 		}
+	}
+	
+	/**
+	 * Priary Sidebar Class
+	 *
+	 */
+	function primary_sidebar_class( $attributes ) {
+		$class = 'sidebar-content' == genesis_site_layout() ? 'sidebar-left' : 'sidebar-right';
+		$attributes['class'] .= ' ' . $class;
+		return $attributes;
+	}
+	
+	/**
+	 * Secondary Sidebar Class
+	 *
+	 */
+	function secondary_sidebar_class( $attributes ) {
+		$class = 'sidebar-content' == genesis_site_layout() ? 'sidebar-right' : 'sidebar-left';
+		$attributes['class'] .= ' ' . $class;
+		return $attributes;
 	}
 }
 
